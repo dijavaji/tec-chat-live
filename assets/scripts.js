@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const messages = document.getElementById('chatMessages');
 
   const API_URL = 'https://tec-message-ws.onrender.com/api/v1/messages'; // endpoint de mensajeria
+  const ASSISTANT = 'tec_procesos_bot';
+  const CREATED_BY = 'app-wps';
 
   toggleBtn.addEventListener('click', () => {
     chatContainer.style.display = 'block';
@@ -30,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const response = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ senderId: uuid, text: userMsg, assistantName:'tec_procesos_bot', createdBy:'app-wps' })
+        body: JSON.stringify({ senderId: uuid, text: userMsg, assistantName: ASSISTANT, createdBy: CREATED_BY })
       });
 
       const data = await response.json();
